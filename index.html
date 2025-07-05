@@ -1,0 +1,2386 @@
+<!DOCTYPE html>
+<html lang="bs">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>MoneyLab Trading</title>
+
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400&display=swap" rel="stylesheet">
+
+<!-- Dodaj u <head> -->
+<link rel="icon" href="mlt-logo.png" type="image/png">
+
+<meta name="description" content="MoneyLab Trading aplikacija za edukaciju, signale i profitabilno trgovanje.">
+<meta property="og:title" content="MoneyLab Trading App">
+<meta property="og:description" content="Postani profitabilan trejder uz MoneyLab edukaciju i signale.">
+<meta property="og:image" content="link-do-slike.png">
+<meta property="og:type" content="website">
+
+
+
+  <style>
+
+
+.intro-text {
+  text-align: justify;
+  color: #ccc; /* Svijetlosiva boja */
+  max-width: 600px;
+  margin: 20px auto 10px;
+  padding: 0 20px;
+  font-size: 13px;
+  line-height: 1.6;
+}
+.intro-text h2 {
+  font-size: 14px;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.handwritten {
+  font-family: 'Dancing Script', cursive;
+  font-size: 27px;
+  font-weight: 400;
+  color: white /* zlatna nijansa */
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+
+.top-subscription-badge {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #a68c4f;
+  color: #0f1c1e;
+  padding: 10px 20px;
+  border-radius: 30px;
+  font-weight: bold;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  cursor: pointer;
+  z-index: 1000;
+  transition: opacity 0.4s ease;
+}
+
+@media screen and (max-width: 768px) {
+  .top-subscription-badge {
+    top: 80px; /* ili više, npr. 100px, ako želiš da bude još niže */
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    justify-content: center;
+  }
+}
+
+
+.bottom-subscription-badge {
+  position: fixed;
+  bottom: 60px;
+  left: 30px;
+  background-color: #a68c4f;
+  color: #0f1c1e;
+  padding: 10px 20px;
+  border-radius: 30px;
+  font-weight: bold;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  cursor: pointer;
+  z-index: 1000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+}
+
+.gold-word {
+  color: #a68c4f;
+}
+    :root {
+      --gold: #d4af37;
+      --dark: #0f1c1e;
+      --accent: #1e2d30;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: #0e222b;
+      color: white;
+      line-height: 1.6;
+      scroll-behavior: smooth;
+overflow-x: hidden;
+    }
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+
+    header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background-color: #0e222b;
+
+      text-align: center;
+      padding: 20px;
+    }
+
+    header img {
+      width: 260px;
+      margin-bottom: 20px;
+    }
+
+   header h1 {
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+  color: white;
+}
+
+
+    .btn {
+      display: inline-block;
+      background-color: #a68c4f;
+      color: var(--dark);
+      padding: 12px 24px;
+      border-radius: 30px;
+      font-weight: bold;
+      margin: 10px;
+      text-decoration: none;
+      transition: 0.3s;
+box-shadow: 0 0 8px rgba(212, 175, 55, 0.4);
+    }
+ .btn:hover {
+  background-color: #a68c4f;
+}
+
+.plan-box .btn {
+  background-color: #28a745; /* ZELENA */
+  color: white;
+  box-shadow: none;
+  border: none;
+  transition: 0.3s;
+}
+
+.plan-box .btn:hover {
+  background-color: #218838; /* Tamnija zelena za hover */
+  color: white;
+}
+
+
+    section {
+      padding: 80px 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    h2 {
+      font-size: 2rem;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 30px; /* RAZMAK između ikonica */
+  justify-items: center;
+}
+
+.feature {
+  background: rgba(255, 255, 255, 0.05);  /* prozirna pozadina */
+  backdrop-filter: blur(4px);
+  padding: 20px;
+  border-radius: 20px;
+  text-align: center;
+  transition: transform 0.3s;
+  width: 170px; /* JEDNAKA širina za sve */
+  height: 170px; /* JEDNAKA visina ako želiš kvadratne kartice */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+    .feature:hover {
+      transform: translateY(-5px);
+    }
+
+    .feature img {
+  width: 50px;
+  height: 50px; /* Dodaj visinu da ne budu različito razvučene */
+  margin-bottom: 10px;
+  object-fit: contain;
+}
+
+    .feature p {
+      font-size: 14px;
+    }
+
+/* Samo za Chapter sekciju */
+.features.chapter-grid {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr); /* TAČNO 8 po redu */
+  gap: 20px;
+  justify-items: center;
+  margin-top: 20px;
+}
+
+/* Iste dimenzije za svaku karticu */
+.features.chapter-grid .feature {
+  width: 100px;
+  height: 115px;
+  background: rgba(255, 255, 255, 0.05); /* providna bijela */
+backdrop-filter: blur(4px); /* stakleni efekat */
+  padding: 10px;
+  border-radius: 12px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Ikonice manje i ujednačene */
+.features.chapter-grid .feature img {
+  width: 30px;
+  height: 30px;
+  margin-bottom: 5px;
+  object-fit: contain;
+}
+
+/* Tekst ispod ikonice */
+.features.chapter-grid .feature p {
+  font-size: 12px;
+  margin: 0;
+}
+
+    .description {
+      max-width: 600px;
+      margin: 0 auto 40px;
+      color: #ccc;
+      font-size: 13px;
+      text-align: justify;
+    }
+
+    .quote {
+      font-style: italic;
+      text-align: center;
+      color: var(--gold);
+      font-size: 18px;
+      margin-top: 40px;
+    }
+
+    footer {
+      background: #0a1416;
+      text-align: center;
+      padding: 30px 20px;
+      font-size: 13px;
+      color: #888;
+    }
+
+.razdvoj-linija {
+  border: none;
+  height: 1px;
+  background-color: white;
+  opacity: 0.3; /* Možeš pojačati na 0.3, 0.5, itd. */
+ margin: 100px 0 60px 0;
+}
+
+.razdvoj-linija1 {
+  border: none;
+  height: 1px;
+  background-color: white;
+  opacity: 0.3;
+  margin: 100px 0 60px 0;
+}
+
+
+.hero-content {
+  margin-top: 70px; /* Podesi visinu po želji */
+  text-align: center;
+}
+
+.hero-content1 {
+  margin-top: -5px; /* Podesi visinu po želji */
+  text-align: center;
+}
+
+.signal-content {
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+}
+.signal-icon {
+  width: 100px;
+  height: 100px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(4px);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+text-align: center;
+}
+
+.signal-content img {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.signal-content p {
+  font-size: 13px;
+  color: #ccc;
+  line-height: 1.6;
+  text-align: justify;
+}
+
+signal-icon img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  margin-bottom: 6px; /* razmak između ikonice i teksta */
+}
+
+.signal-icon p {
+  font-size: 12px;
+  color: #ccc;
+  margin: 0;
+}
+
+.navbar {
+  position: fixed;
+  top: 20px;
+  right: 30px;
+  z-index: 999;
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 15px;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 8px 12px;
+  border-radius: 20px;
+  transition: 0.3s;
+}
+
+.navbar a:hover {
+  background-color: rgba(212, 175, 55, 0.2); /* zlatna providna pozadina */
+  color:  #a68c4f;
+}
+
+.language-switch {
+  position: fixed;
+  top: 20px;
+  left: 30px;
+  z-index: 1000;
+  display: flex;
+  gap: 10px;
+}
+
+.lang {
+  font-size: 18px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.lang:hover {
+  transform: scale(1.2);
+}
+
+.language-switch img {
+  width: 24px;
+  height: 16px;
+  border-radius: 2px;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s;
+}
+
+.language-switch img:hover {
+  transform: scale(1.2);
+}
+
+.navbar, .language-switch {
+  transition: opacity 0.4s ease;
+}
+
+/* Bubble dugme */
+.cta-bubble {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  background-color: #a68c4f;
+  color: var(--dark);
+  font-size: 22px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  z-index: 999;
+  transition: opacity 0.3s;
+  display: none;
+}
+
+/* Popup prozor */
+.cta-popup {
+  position: fixed;
+  bottom: 90px;
+  right: 30px;
+  background-color: #1e2d30;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.4);
+  display: none;
+  z-index: 1000;
+  width: 260px;
+  text-align: center;
+}
+
+.cta-popup .popup-content img {
+  width: 60px;
+  margin-bottom: 10px;
+}
+
+.cta-popup .popup-content p {
+  font-size: 13px;
+  color: #ccc;
+  margin-bottom: 15px;
+}
+
+.cta-popup .btn {
+  margin: 5px;
+  font-size: 13px;
+}
+
+.subscription-popup {
+  display: none;
+  position: fixed;
+  top: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(100, 150, 200, 0.2);
+  backdrop-filter: blur(18px); /* za stakleni efekat */
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+  z-index: 1001;
+  max-width: 90%;
+}
+
+.popup-inner {
+  text-align: center;
+}
+
+.plans-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* ili 2 ako koristiš responsive */
+  gap: 20px;
+  margin-top: 20px;
+  align-items: stretch; /* rastegni sve da budu iste visine */
+}
+
+@media (min-width: 768px) {
+  .plans-grid {
+    grid-template-columns: repeat(4, 1fr); /* 4 u redu za tablete i veće */
+  }
+}
+
+.plan-box {
+  background: rgba(100, 150, 200, 0.2);
+  border-radius: 16px;
+  padding: 20px;
+  color: white;
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* ovo gura dugme na dno */
+  height: 100%; /* rastegni visinu */
+}
+
+.plan-box h4 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.plan-box .price {
+  font-size: 16px;
+  margin: 10px;
+}
+
+.plan-box .price .old {
+  text-decoration: line-through;
+  opacity: 0.5;
+  margin-right: 5px;
+}
+
+.plan-box .limit {
+  font-size: 13px;
+  margin-bottom: 10px;
+  color: #ccc;
+}
+
+.plan-box ul {
+  list-style: none;
+  padding: 0;
+  text-align: left;
+  margin: 10px 0;
+}
+
+.plan-box ul li {
+  font-size: 13px;
+ line-height: 1.6;
+  margin-bottom: 8px;
+}
+
+.badge-label {
+  position: absolute;
+  top: 10px;
+  right: -25px;
+  background: linear-gradient(to right, #d40000, #ff4d4d);
+  color: white;
+  padding: 4px 30px;
+  transform: rotate(45deg);
+  font-size: 10px;
+  font-weight: bold;
+  text-transform: uppercase;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  border-radius: 3px;
+  letter-spacing: 0.5px;
+  z-index: 10;
+}
+
+.scroll-offset {
+  scroll-margin-top: 100px; /* Ovo je visina koju će ostaviti ispod menija */
+  padding-top: 30px; /* Možeš prilagoditi prema potrebi */
+}
+
+.faq-container {
+  max-width: 800px;
+  margin: 40px auto;
+}
+
+.faq-item {
+  margin-bottom: 20px;
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: rgba(255,255,255,0.05);
+  backdrop-filter: blur(4px);
+}
+
+.faq-question {
+  width: 100%;
+  text-align: left;
+  padding: 15px 20px;
+  background-color: transparent;
+  color: white;
+  font-size: 15px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+  padding: 0 20px;
+}
+
+.faq-item.open .faq-answer {
+  max-height: 200px;
+  padding: 15px 20px;
+}
+
+.language-select-wrapper {
+   display: flex;
+align-items: center;
+   gap: 10px;
+  color: white;
+  font-size: 13px;
+  font-weight: bold;
+  font-family: 'Montserrat', sans-serif;
+margin-left: 8px;
+
+}
+
+.language-select-wrapper select {
+  background-color: #0e222b;
+  border: none;
+  border-bottom: 2px solid #d4af37;
+  color: white;
+  font-size: 14px;
+  margin-left: 10px;
+  padding: 2px 5px;
+  font-family: inherit;
+}
+
+.language-select-wrapper select:focus {
+  outline: none;
+  border-color: #fff;
+}
+
+.welcome-download {
+  margin-top: 75px; /* Povećaj ako želiš veći razmak */
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.modal-content {
+  background-color: #0f1c1e;
+  margin: 10% auto;
+  padding: 20px;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 400px;
+  color: #fff;
+  font-family: 'Montserrat', sans-serif;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.modal-content h3 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 18px;
+}
+
+.crypto-list {
+  list-style: none;
+  padding: 0;
+}
+
+.crypto-list li {
+  display: flex;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.crypto-list .icon {
+  margin-right: 10px;
+  color: #d4af37;
+}
+
+.crypto-list .lock {
+  margin-left: auto;
+  color: #d4af37;
+}
+
+.close-btn {
+  float: right;
+  font-size: 22px;
+  cursor: pointer;
+  color: #fff;
+}
+
+.close-forex {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 24px;
+  cursor: pointer;
+  color: #fff;
+}
+
+.close-meme {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 24px;
+  cursor: pointer;
+  color: #fff;
+}
+
+.close-live {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 24px;
+  cursor: pointer;
+  color: #fff;
+}
+
+.close-psiho {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 24px;
+  cursor: pointer;
+  color: #fff;
+}
+
+.close-portal {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 24px;
+  cursor: pointer;
+  color: #fff;
+}
+
+.modal-content1 {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(255, 255, 255, 0.05);  /* prozirna pozadina */
+  backdrop-filter: blur(14px);
+
+  padding: 20px;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 400px;
+  color: #fff;
+}
+
+.popup-title1 {
+  text-align: center;
+  font-size: 19px; /* prilagodi po želji */
+  margin-bottom: 15px;
+}
+
+.popup-text-live {
+  font-family: 'Raleway', sans-serif;
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 1.9;
+  color: #d0d0d0;
+  text-align: left;
+  letter-spacing: 0.4px;
+  padding: 10px 15px;
+}
+
+.chapter-modal {
+  display: none;
+  position: fixed;
+  z-index: 1050;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+   background-color: rgba(0, 0, 0, 0.6);
+  
+  justify-content: center;
+  align-items: center;
+}
+
+.chapter-modal-content {
+  background: rgba(255, 255, 255, 0.03);  /* prozirna pozadina */
+  backdrop-filter: blur(15px);
+
+  color: #fff;
+  padding: 30px;
+  border-radius: 20px;
+  max-width: 500px;
+  width: 90%;
+  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+  position: relative;
+  text-align: left;
+}
+
+.chapter-title {
+  font-size: 20px;
+  margin-bottom: 20px;
+  color: #a68c4f;
+  text-align: center;
+}
+
+.chapter-lessons {
+  list-style: none; /* uklanja tačke */
+  padding-left: 0;  /* uklanja dodatni lijevi razmak */
+}
+
+
+.chapter-lessons li {
+font-family: 'Montserrat', sans-serif;
+  margin-bottom: 10px;
+  font-size: 16px;
+  line-height: 1.7;
+  color: #ffffff;
+  font-weight: 400;
+  padding-left: 5px;
+}
+
+.close-chapter {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 24px;
+  color: white;
+  cursor: pointer;
+}
+
+.signal-popup-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(15, 28, 30, 0.85);
+  backdrop-filter: blur(6px);
+  z-index: 9999;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.signal-popup-content {
+  background: rgba(255, 255, 255, 0.03);  /* prozirna pozadina */
+  backdrop-filter: blur(15px);
+  padding: 30px;
+  border-radius: 20px;
+  max-width: 600px;
+    color: #fff;
+  text-align: justify;
+  font-size: 15px;
+  font-family: 'Montserrat', sans-serif;
+  position: relative;
+}
+
+.signal-popup-content img {
+  max-width: 100%;
+  margin-bottom: 20px;
+  border-radius: 12px;
+}
+
+.close-popup {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  font-size: 24px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.signal-popup-text {
+  font-family: 'Montserrat', sans-serif;
+  color: #ccc;
+  font-size: 15px;
+  line-height: 1.8;
+  text-align: justify;
+  margin-top: 15px;
+}
+.signal-popup-text p {
+  margin-bottom: 16px;
+}
+
+@media (max-width: 768px) {
+  .feature,
+  .package,
+  .faq-question {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .download-buttons {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .popup-content {
+    width: 90%;
+    padding: 20px;
+  }
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.mobile-menu-toggle {
+  display: none;
+  font-size: 30px;
+  color: white;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 2000;
+  cursor: pointer;
+}
+
+.mobile-menu {
+  display: none;
+  position: fixed;
+  top: 60px;
+  right: 20px;
+  background-color: #0f1c1e;
+  border: 1px solid #444;
+  border-radius: 10px;
+  z-index: 1999;
+}
+
+.mobile-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.mobile-menu ul li {
+  border-bottom: 1px solid #444;
+}
+
+.mobile-menu ul li:last-child {
+  border-bottom: none;
+}
+
+.mobile-menu ul li a {
+  display: block;
+  padding: 12px 20px;
+  color: white;
+  text-decoration: none;
+}
+
+.mobile-menu ul li a:hover {
+  background-color: #1a2b2c;
+}
+
+/* Prikaz hamburger menija ispod 768px */
+@media (max-width: 768px) {
+  .navbar ul {
+    display: none;
+  }
+
+  .mobile-menu-toggle {
+    display: block;
+  }
+}
+
+/* MOBILNA VERZIJA — tekst iznad selecta */
+@media (max-width: 768px) {
+  .language-select-wrapper {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .language-select-wrapper label {
+    margin-left: 8px;
+margin-top: 5px;
+  }
+}
+
+  </style>
+</head>
+<body>
+
+<div class="language-select-wrapper">
+  <label for="language">Izaberite jezik:</label>
+  <select id="language" onchange="changeLanguage()">
+    <option value="bs">Bosanski</option>
+    <option value="en">English</option>
+  </select>
+</div>
+
+
+<nav class="navbar">
+  <ul>
+   <li><a href="#mlt-aplikacija">O MLT aplikaciji</a></li>
+    <li><a href="#edukacija">Edukacija</a></li>
+    <li><a href="#signali">SIGNALI</a></li>
+    <li><a href="#faq">FAQ</a></li>
+  </ul>
+</nav>
+
+<div class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+  &#9776;
+</div>
+<div class="mobile-menu" id="mobileMenu">
+  <ul>
+    <li><a href="#mlt-aplikacija" onclick="toggleMobileMenu()">O MLT aplikaciji</a></li>
+    <li><a href="#edukacija" onclick="toggleMobileMenu()">Edukacija</a></li>
+    <li><a href="#signali" onclick="toggleMobileMenu()">SIGNALI</a></li>
+    <li><a href="#faq" onclick="toggleMobileMenu()">FAQ</a></li>
+  </ul>
+</div>
+
+
+<!-- UBACITI IZA OVA DVA DIV-a -->
+<!-- Gornji oblačić -->
+<div class="top-subscription-badge" id="topSubscriptionBadge">
+  📦 Subscription paketi
+</div>
+<!-- Donji oblačić -->
+<div class="bottom-subscription-badge" id="bottomSubscriptionBadge">
+  📦 Subscription paketi
+</div>
+
+<!-- NOVI POPUP ZA PAKETE (ubaciti ispod prethodna dva div-a) -->
+<div class="subscription-popup" id="subscriptionPopup">
+  <div class="popup-inner">
+    <h3><span class="gold-word">Izaberite svoj plan</span></h3>
+    <div class="plans-grid">
+      <!-- Paket 1 -->
+      <div class="plan-box">
+        
+        <h4><span class="gold-word">Essential</span></h4>
+        <p class="price">
+ 
+  <strong><span class="gold-word" style="font-size: 26px;">€49.95</span></strong><br>
+  <small>/ 30 dana</small>
+</p>
+
+        <p class="limit">Napravite svoje prve trejding korake Tradingview, Metatrader 5, Signali</p>
+        <ul>
+          <li>✅ Tehnička analiza Forex i Crypto marketa</li>
+          <li>✅ Forex i Crypto svakodnevni SIGNALI</li>
+          <li>✅ Osnovna edukacija, uvod u trejding</li>
+          <li>✅ Jednom sedmično pristup lajv trejdingu</li>
+      
+        </ul>
+        <button class="btn">Odaberite plan</button>
+      </div>
+
+      <!-- Paket 2 -->
+      <div class="plan-box">
+        <div class="badge-label">Akcija</div>
+
+        <h4><span class="gold-word">Plus</span></h4>
+        <p class="price">
+  <span class="old">€119.95</span> 
+
+  <strong><span class="gold-word" style="font-size: 26px;">€99.95</span></strong><br>
+  <small>/ 30 dana</small>
+</p>
+
+        <p class="limit">Sve što vam je potrebno za uspješno Forex i Crypto trgovanje</p>
+          <ul>
+          <li>✅ Pristup kompletnoj edukaciji</li>
+          <li>✅ Opširna trejding statistika, TradeZella</li>
+          <li>✅ Forex i Crypto svakodnevni SIGNALI</li>
+          <li>✅ Tehnička analiza Forex i Crypto marketa</li>
+          <li>✅ Dva puta sedmično pristup lajv trejdingu</li>
+        </ul>
+        <button class="btn">Odaberite plan</button>
+      </div>
+
+      <!-- Paket 3 -->
+      <div class="plan-box">
+        
+       <h4><span class="gold-word">Premium</span></h4>
+        <p class="price">
+    <strong><span class="gold-word" style="font-size: 26px;">€149.95</span></strong><br>
+  <small>/ 30 dana</small>
+</p>
+
+        <p class="limit">Sve što vam je potrebno za uspješno trgovinu na svim tržištima</p>
+
+        <ul>
+          <li>✅ Dodjela ličnog mentora za kompletnu edukaciju 1 na 1</li>
+          <li>✅ Meme coin signali</li>
+          <li>✅ Forex i Crypto signali</li>
+          <li>✅ Edukacija za Meme coin trgovinu</li>
+          <li>✅ Tri puta sedmično pristup lajv trejdingu</li>
+
+        </ul>
+        <button class="btn">Odaberite plan</button>
+      </div>
+
+      <!-- Paket 4 -->
+      <div class="plan-box">
+        <div class="badge-label">Limitirano</div>
+        <h4><span class="gold-word">VIP Prop Funded</span></h4>
+        <p class="price">
+  <span class="old">€1499.95</span> 
+  <strong><span class="gold-word" style="font-size: 26px;">€999.95</span></strong><br>
+  <small>/ 40 dana</small>
+</p>
+
+        <p class="limit">Dostupno za idućih <strong>5</strong> trejdera</p>
+
+        <ul>
+          <li>✅ Dodjela ličnog trejdera koji trejda za vas vaš propfirm nalog</li>
+          <li>✅ Kartica za pristup MoneyLab trading floor-u</li>
+          <li>✅ Mogućnost putovanja sa MoneyLab timom</li>
+          <li>✅ Mentorstvo - Zakon privlačenja</li>
+         
+        </ul>
+        <button class="btn">Odaberite plan</button>
+      </div>
+    </div>
+<p style="font-size: 12px; color: #ccc; margin-top: 20px; text-align: center; max-width: 600px; margin-left: auto; margin-right: auto;">
+  <span style="font-size: 14px; color: #d4af37;">ℹ️</span>
+  <strong>Napomena:</strong> Nakon što odaberete jedan od ponuđenih planova i izvršite uplatu, pristupne podatke za korištenje aplikacije dobit ćete putem e-mail adrese koju ćete navesti prilikom plaćanja.
+</p>
+
+  </div>
+</div>
+
+
+<header>
+
+
+<div class="hero-content">
+    <p class="handwritten">Napravljeno s ljubavlju u Dubai-u ❤️</p>
+
+
+</div>
+  <img src="mlt-logo.png" alt="MLT Logo">
+<div class="intro-text">
+  <h2>Dobrodošli u MoneyLab Trading aplikaciju!</h2>
+  <p>Bilo da ste početnik ili iskusni trejder, tu smo da vam pomognemo da usavršite svoje vještine i donosite pametne investicione odluke. Uz našu aplikaciju, sve što vam je potrebno za uspješan i profitabilan put na Forex, Crypto ili Meme coin tržištima je na dohvat ruke.</p>
+</div>
+
+
+   <div class="download-buttons welcome-download">
+      <a href="#" class="btn">📱 Preuzmi za iOS</a>
+      <a href="#" class="btn">🤖 Preuzmi za Android</a>
+    </div>
+  </div>
+</header>
+
+<hr class="razdvoj-linija">
+
+  <section id="mlt-aplikacija" class="scroll-offset" data-aos="fade-up">
+
+    <h2>Šta aplikacija nudi?</h2>
+    <div class="features">
+      <div class="feature" id="cryptoTrigger"> 
+  <img src="crypto-icon.png" alt="Crypto">
+  <p>Crypto</p>
+</div>
+
+      <div class="feature" id="forexTrigger">
+  <img src="forex-icon.png" alt="Forex"> 
+  <p>Forex</p> 
+</div>
+
+      <div class="feature" id="memeTrigger">
+<img src="memecoin-icon.png" alt="Meme coin">
+<p>Meme coin</p>
+</div>
+
+      <div class="feature" id="liveTrigger">
+<img src="live-icon.png" alt="Live Trading">
+<p>Live Trading</p>
+</div>
+
+      <div class="feature" id="psihoTrigger">
+<img src="psych-icon.png" alt="Psihologija">
+<p>Psihologija trejdinga</p>
+</div>
+
+      <div class="feature" id="portalTrigger">
+<img src="portal-icon.png" alt="Portal">
+<p>Community</p>
+</div>
+    </div>
+  </section>
+
+
+<section id="edukacija" class="scroll-offset" data-aos="fade-up">
+    <h2>Edukacija - Od osnova do profitabilnosti</h2>
+    <p class="description">
+      Naš glavni fokus je na edukaciji i garantujemo da ćete u ovoj aplikaciji pronaći kompletan obrazovni materijal potreban da postanete profesionalni trejder. Edukacija je temeljna i sveobuhvatna, zasnovana na metodologiji američkih licenciranih trejding univerziteta. Program ima 15 poglavlja s preko 15 lekcija po svakom. Nakon toga bit ćete potpuno osposobljeni za samostalno trgovanje na svim tržištima i ostvarivanje kontinuirane profitabilnosti.
+    </p>
+
+   <div class="features chapter-grid">
+
+      <div class="feature" onclick="openChapterModal('chapter1Modal')">
+<img src="chapter-icon.png" alt="Chapter 1"><p><span class="gold-word">Chapter 1:</span>    Šta je trejding?</p>
+</div>
+
+      <div class="feature" onclick="openChapter2Modal('chapter2Modal')">
+<img src="chapter-icon.png" alt="Chapter 2"><p><span class="gold-word">Chapter 2:</span> Trejding psihologija</p>
+</div>
+
+      <div class="feature" onclick="openChapter3Modal('chapter3Modal')">
+<img src="chapter-icon.png" alt="Chapter 3"><p><span class="gold-word">Chapter 3:</span> Tehnička analiza</p></div>
+
+      <div class="feature" onclick="openChapter4Modal('chapter4Modal')">
+<img src="chapter-icon.png" alt="Chapter 4"><p><span class="gold-word">Chapter 4:</span> Indikator trejding</p>
+</div>
+
+      <div class="feature" onclick="openChapter5Modal('chapter5Modal')">
+<img src="chapter-icon.png" alt="Chapter 5"><p><span class="gold-word">Chapter 5:</span> Key level trejding</p>
+</div>
+
+      <div class="feature" onclick="openChapter6Modal('chapter6Modal')">
+<img src="chapter-icon.png" alt="Chapter 6"><p><span class="gold-word">Chapter 6:</span> Trejding sistemi</p></div>
+
+      <div class="feature" onclick="openChapter7Modal('chapter7Modal')">
+<img src="chapter-icon.png" alt="Chapter 7"><p><span class="gold-word">Chapter 7:</span> Čuvanje kapitala</p></div>
+
+      <div class="feature" onclick="openChapter8Modal('chapter8Modal')">
+<img src="chapter-icon.png" alt="Chapter 8"><p><span class="gold-word">Chapter 8:</span> Key level 2.0</p></div>
+
+      <div class="feature" onclick="openChapter9Modal('chapter9Modal')">
+<img src="chapter-icon.png" alt="Chapter 9"><p><span class="gold-word">Chapter 9:</span> Risk & money menadžment</p>
+</div>
+
+      <div class="feature" onclick="openChapter10Modal('chapter10Modal')">
+<img src="chapter-icon.png" alt="Chapter 10"><p><span class="gold-word">Chapter 10:</span> Napredni key sistemi</p>
+</div>
+
+      <div class="feature" onclick="openChapter11Modal('chapter11Modal')">
+<img src="chapter-icon.png" alt="Chapter 11"><p><span class="gold-word">Chapter 11:</span> Strategija MoneyLab-a</p>
+</div>
+
+      <div class="feature" onclick="openChapter12Modal('chapter12Modal')">
+<img src="chapter-icon.png" alt="Chapter 12"><p><span class="gold-word">Chapter 12:</span> Statistika i algoritmi</p>
+</div>
+
+      <div class="feature" onclick="openChapter13Modal('chapter13Modal')">
+<img src="chapter-icon.png" alt="Chapter 13"><p><span class="gold-word">Chapter 13:</span> Brokeri i prop firme</p>
+</div>
+
+      <div class="feature" onclick="openChapter14Modal('chapter14Modal')">
+<img src="chapter-icon.png" alt="Chapter 14"><p><span class="gold-word">Chapter 14:</span> Meme coin trgovanje</p>
+</div>
+
+      <div class="feature" onclick="openChapter15Modal('chapter15Modal')">
+<img src="chapter-icon.png" alt="Chapter 15"><p><span class="gold-word">Chapter 15:</span> Finale</p>
+</div>
+
+  </div>
+  </section>
+
+<section id="signali" class="scroll-offset" data-aos="fade-up">
+  <h2>Forex. Crypto. Meme Coin. <span class="gold-word">Profitabilni SIGNALI</span> koje svi žele.<br>
+  <strong>Ti ih sada imaš.</strong></h2>
+
+
+  <div class="signal-content">
+  <div class="feature signal-icon" id="signalIconTrigger" style="cursor: pointer;">
+    <img src="signal-icon.png" alt="Signal Ikonica" />
+    <p>SIGNALI</p>
+  </div>
+  <p>
+
+      <div style="text-align: left; font-family: 'Montserrat', sans-serif; line-height: 1.8; color: #fff; max-width: 720px; margin: auto; font-size: 16px;">
+  <p>
+    Uz <strong>MLT aplikaciju</strong> dobivaš <strong>direktan pristup ekskluzivnim signalima</strong> za najaktivnija tržišta današnjice – <strong>Forex, Crypto i Meme Coin</strong>. Prilike koje većina traži, ali samo odabrani imaju pristup.
+  </p>
+  <ul style="list-style-type: '✅ '; padding-left: 1.4em; margin-top: 10px;">
+    <li><strong>Forex signali</strong> – svakog radnog dana</li>
+    <li><strong>Crypto i Meme Coin signali</strong> – dostupni 7 dana u sedmici</li>
+    <li><strong>Profesionalni trejderi ti šalju precizne signale sa detaljnom analizom i jasnim ulazima i izlazima</li>
+  </ul>
+<br>
+  <p>
+    📩 Signali stižu najčešće barem 30 minuta unaprijed, dajući ti dovoljno vremena za analizu i odluku.
+  </p>
+  <p>
+   📊 Uz to, imaš potpun uvid u mjesečnu statistiku svih signala – jer transparentnost i povjerenje su naša osnova.
+  </p>
+</div>
+</section>
+
+<div class="hero-content1">
+    
+    <div class="download-buttons">
+      <a href="#" class="btn">📱 Preuzmi za iOS</a>
+      <a href="#" class="btn">🤖 Preuzmi za Android</a>
+    </div>
+  </div>
+
+<hr class="razdvoj-linija1">
+
+<section id="faq" class="scroll-offset" data-aos="fade-up" style="max-width: 700px; margin: auto;">
+  <h2 style="text-align: center; margin-bottom: 30px; font-size: 28px; color: white;">Često postavljena pitanja</h2>
+
+  <div class="faq-container" style="max-width: 800px; margin: auto;">
+  <div class="faq-item" style="margin-bottom: 12px; border-radius: 12px; overflow: hidden;">
+    <button class="faq-question" style="width: 100%; padding: 15px 20px; background: rgba(255, 255, 255, 0.05); color: white; border: none; font-weight: 600; text-align: left; cursor: pointer; transition: background 0.3s;">Kako mogu preuzeti aplikaciju?</button>
+    <div class="faq-answer" style="display: none; background: rgba(255, 255, 255, 0.03); padding: 15px 20px; font-size: 14px; color: #ccc;">Aplikaciju možeš preuzeti klikom na dugme za iOS ili Android koje se nalazi odmah iznad.</div>
+  </div>
+
+  <div class="faq-item" style="margin-bottom: 12px; border-radius: 12px; overflow: hidden;">
+    <button class="faq-question" style="width: 100%; padding: 15px 20px; background: rgba(255, 255, 255, 0.05); color: white; border: none; font-weight: 600; text-align: left; cursor: pointer; transition: background 0.3s;">Da li su signali zaista tačni?</button>
+    <div class="faq-answer" style="display: none; background: rgba(255, 255, 255, 0.03); padding: 15px 20px; font-size: 14px; color: #ccc;">Signali dolaze od profesionalnih trejdera i imaju transparentnu statistiku uspješnosti svakog mjeseca.</div>
+  </div>
+
+  <div class="faq-item" style="margin-bottom: 12px; border-radius: 12px; overflow: hidden;">
+    <button class="faq-question" style="width: 100%; padding: 15px 20px; background: rgba(255, 255, 255, 0.05); color: white; border: none; font-weight: 600; text-align: left; cursor: pointer; transition: background 0.3s;">Da li uz pomoć MoneyLab signala mogu proći Challenge na propfirm nalogu?</button>
+    <div class="faq-answer" style="display: none; background: rgba(255, 255, 255, 0.03); padding: 15px 20px; font-size: 14px; color: #ccc;">Da. Uz MoneyLab signale i praćenje svih uputa koje šalju iskusni MoneyLab trejderi vrlo lahko možeš proći challenge na bilo kojem propfirm nalogu.</div>
+  </div>
+
+  <div class="faq-item" style="margin-bottom: 12px; border-radius: 12px; overflow: hidden;">
+    <button class="faq-question" style="width: 100%; padding: 15px 20px; background: rgba(255, 255, 255, 0.05); color: white; border: none; font-weight: 600; text-align: left; cursor: pointer; transition: background 0.3s;">Kada ću dobiti pristup nakon plaćanja?</button>
+    <div class="faq-answer" style="display: none; background: rgba(255, 255, 255, 0.03); padding: 15px 20px; font-size: 14px; color: #ccc;">Nakon uspješne uplate, pristupni podaci će ti biti poslani na e-mail koji uneseš prilikom plaćanja putem web stranice. Ako se pretplata aktivira kroz aplikaciju, tvoj nalog će automatski biti prebačen u plaćeni paket.</div>
+  </div>
+
+  <div class="faq-item" style="margin-bottom: 12px; border-radius: 12px; overflow: hidden;">
+    <button class="faq-question" style="width: 100%; padding: 15px 20px; background: rgba(255, 255, 255, 0.05); color: white; border: none; font-weight: 600; text-align: left; cursor: pointer; transition: background 0.3s;">Da li aplikacija nudi edukaciju?</button>
+    <div class="faq-answer" style="display: none; background: rgba(255, 255, 255, 0.03); padding: 15px 20px; font-size: 14px; color: #ccc;">Da. Aplikacija sadrži vrhunsku edukaciju koja korisnicima pomaže da izgrade temelje i usvoje profitabilnu strategiju MoneyLab trejdera.</div>
+  </div>
+
+  <div class="faq-item" style="margin-bottom: 12px; border-radius: 12px; overflow: hidden;">
+    <button class="faq-question" style="width: 100%; padding: 15px 20px; background: rgba(255, 255, 255, 0.05); color: white; border: none; font-weight: 600; text-align: left; cursor: pointer; transition: background 0.3s;">Ko šalje svakodnevne signale?</button>
+    <div class="faq-answer" style="display: none; background: rgba(255, 255, 255, 0.03); padding: 15px 20px; font-size: 14px; color: #ccc;">Signale ti dostavljaju iskusni profesionalci s višegodišnjim iskustvom u trejdingu. Svaki signal stiže kao notifikacija direktno na tvoj telefon – jasan, tačan i spreman za akciju.</div>
+  </div>
+
+  <div class="faq-item" style="margin-bottom: 12px; border-radius: 12px; overflow: hidden;">
+    <button class="faq-question" style="width: 100%; padding: 15px 20px; background: rgba(255, 255, 255, 0.05); color: white; border: none; font-weight: 600; text-align: left; cursor: pointer; transition: background 0.3s;">Postoji li zajednica (community)?</button>
+    <div class="faq-answer" style="display: none; background: rgba(255, 255, 255, 0.03); padding: 15px 20px; font-size: 14px; color: #ccc;">Da. U sklopu aplikacije nalazi se community odjeljak gdje svi članovi mogu razmjenjivati iskustva, postavljati pitanja i dijeliti analize.</div>
+  </div>
+
+  <div class="faq-item" style="margin-bottom: 12px; border-radius: 12px; overflow: hidden;">
+    <button class="faq-question" style="width: 100%; padding: 15px 20px; background: rgba(255, 255, 255, 0.05); color: white; border: none; font-weight: 600; text-align: left; cursor: pointer; transition: background 0.3s;">Kako funkcioniše referral program?</button>
+    <div class="faq-answer" style="display: none; background: rgba(255, 255, 255, 0.03); padding: 15px 20px; font-size: 14px; color: #ccc;">Aplikacija nudi referral program preko kojeg korisnici mogu pozivati druge i ostvarivati zaradu za svaku uspješnu preporuku. Detaljnu tablicu zarade možeš pronaći unutar same aplikacije.</div>
+  </div>
+
+  <div class="faq-item" style="margin-bottom: 12px; border-radius: 12px; overflow: hidden;">
+    <button class="faq-question" style="width: 100%; padding: 15px 20px; background: rgba(255, 255, 255, 0.05); color: white; border: none; font-weight: 600; text-align: left; cursor: pointer; transition: background 0.3s;">Da li postoje nagrade unutar aplikacije?</button>
+    <div class="faq-answer" style="display: none; background: rgba(255, 255, 255, 0.03); padding: 15px 20px; font-size: 14px; color: #ccc;">Da. Najaktivniji i najuspješniji korisnici mogu osvajati vrijedne nagrade koje se redovno ažuriraju i objavljuju unutar aplikacije.</div>
+  </div>
+
+  <div class="faq-item" style="margin-bottom: 12px; border-radius: 12px; overflow: hidden;">
+    <button class="faq-question" style="width: 100%; padding: 15px 20px; background: rgba(255, 255, 255, 0.05); color: white; border: none; font-weight: 600; text-align: left; cursor: pointer; transition: background 0.3s;">Šta je VIP Prop paket?</button>
+    <div class="faq-answer" style="display: none; background: rgba(255, 255, 255, 0.03); padding: 15px 20px; font-size: 14px; color: #ccc;">U VIP Prop paketu, korisnici dobijaju ličnog trejdera koji u njihovo ime prolazi kroz funding nalog i izvršava sve trejdove.</div>
+  </div>
+
+  <div class="faq-item" style="margin-bottom: 12px; border-radius: 12px; overflow: hidden;">
+    <button class="faq-question" style="width: 100%; padding: 15px 20px; background: rgba(255, 255, 255, 0.05); color: white; border: none; font-weight: 600; text-align: left; cursor: pointer; transition: background 0.3s;">Da li se održavaju live sesije?</button>
+    <div class="faq-answer" style="display: none; background: rgba(255, 255, 255, 0.03); padding: 15px 20px; font-size: 14px; color: #ccc;">Svake sedmice se održavaju uživo sesije gdje korisnici mogu postavljati pitanja, sudjelovati u analizama i podešavanju trejdova direktno sa mentorima.</div>
+  </div>
+</div>
+</section>
+
+<section id="kontakt" data-aos="fade-up" style="padding-top: 10px; text-align: center;">
+  <p style="font-size: 14px; color: #ccc; max-width: 600px; margin: auto; line-height: 1.6;">
+    📩 Ukoliko imate dodatna pitanja, trebate pomoć ili želite podijeliti svoje mišljenje, slobodno nas kontaktirajte putem e-mail adrese:<br><br>
+    <span style="font-size: 15px;">
+       <a href="mailto:moneylabtrading@gmail.com" style="color: #a68c4f; font-weight: bold; text-decoration: none;">
+        moneylabtrading@gmail.com
+      </a>
+    </span>
+  </p>
+</section>
+
+
+
+
+  <section class="quote" data-aos="fade-in">
+    “The stock market is a device for transferring money from the impatient to the patient.”<br> – Warren Buffett
+  </section>
+
+
+<!-- Trust badge: PayPal + kartice -->
+<div style="text-align:center; margin-bottom: 30px;">
+  <img src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/pp-acceptance-small.png"
+       alt="PayPal Accepted"
+       style="max-width: 150px; margin: 5px;" />
+  
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Visa_Logo.png/120px-Visa_Logo.png"
+       alt="Visa"
+       style="max-height: 25px; margin: 5px;" />
+       
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Mastercard-logo.png/120px-Mastercard-logo.png"
+       alt="MasterCard"
+       style="max-height: 25px; margin: 5px;" />
+
+  <p style="font-size: 12px; color: #ccc; max-width: 600px; margin: auto; line-height: 1.6;">
+
+    🔐 Sigurno plaćanje putem PayPal-a i kreditnih kartica.
+  </p>
+</div>
+
+  <footer>
+    <p>© 2025 MoneyLab Trading   |   Sva prava zadržana.</p>
+
+<p style="margin-top: 25px; font-size: 11px; color: #aaa; max-width: 700px; margin-left: auto; margin-right: auto; text-align: center; line-height: 1.5; opacity: 0.6;">
+  ⚠️ Informacije i trgovački signali koje pruža MoneyLab služe isključivo u edukativne svrhe i ne predstavljaju finansijski savjet.
+  Trgovanje nosi rizik i odgovornost je isključivo na korisniku.
+</p>
+
+
+  </footer>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>AOS.init({ duration: 1000 });</script>
+
+<script>
+  let lastScrollTop = 0;
+  const navbar = document.querySelector('.navbar');
+  const langSwitch = document.querySelector('.language-switch');
+
+  window.addEventListener('scroll', function () {
+    let scrollTop = window.scrollY || document.documentElement.scrollTop;
+
+    if (scrollTop > lastScrollTop) {
+      // Skroluje prema dole – sakrij
+      navbar.style.opacity = '0';
+      navbar.style.pointerEvents = 'none';
+      langSwitch.style.opacity = '0';
+      langSwitch.style.pointerEvents = 'none';
+    } else {
+      // Skroluje prema gore – prikaži
+      navbar.style.opacity = '1';
+      navbar.style.pointerEvents = 'auto';
+      langSwitch.style.opacity = '1';
+      langSwitch.style.pointerEvents = 'auto';
+    }
+
+    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+  });
+</script>
+
+<!-- CTA Bubble dugme -->
+<div class="cta-bubble" id="ctaBubble">
+  🚀
+</div>
+
+<!-- Popup prozor -->
+<div class="cta-popup" id="ctaPopup">
+  <div class="popup-content">
+    <img src="mlt-logo.png" alt="MLT Logo">
+    <p>🎯 Ne čekaj – preuzmi aplikaciju i iskoristi prilike na tržištu već danas!</p>
+    <a href="#" class="btn">📱 iOS</a>
+    <a href="#" class="btn">🤖 Android</a>
+  </div>
+</div>
+
+<script>
+  const bubble = document.getElementById("ctaBubble");
+  const popup = document.getElementById("ctaPopup");
+
+  // Prikaži bubble kad skrolaš 600px
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 600) {
+      bubble.style.display = "flex";
+    } else {
+      bubble.style.display = "none";
+      popup.style.display = "none";
+    }
+  });
+
+  // Klik otvara/zatvara popup
+  bubble.addEventListener("click", () => {
+    popup.style.display = popup.style.display === "block" ? "none" : "block";
+  });
+</script>
+
+<script>
+  const subscriptionPopup = document.getElementById("subscriptionPopup");
+  const topBadge = document.getElementById("topSubscriptionBadge");
+  const bottomBadge = document.getElementById("bottomSubscriptionBadge");
+
+  // Funkcija za otvaranje/zatvaranje popup-a
+  function togglePopup() {
+    subscriptionPopup.style.display = subscriptionPopup.style.display === "block" ? "none" : "block";
+  }
+
+  // Klik na oblačiće
+  topBadge.addEventListener("click", togglePopup);
+  bottomBadge.addEventListener("click", togglePopup);
+
+  // Sakrij popup ako kliknemo izvan njega
+  window.addEventListener("click", function(e) {
+    if (!subscriptionPopup.contains(e.target) &&
+        e.target !== topBadge &&
+        e.target !== bottomBadge) {
+      subscriptionPopup.style.display = "none";
+    }
+  });
+
+  // Logika za prikaz i skrivanje gornjeg i donjeg badge-a
+  window.addEventListener("scroll", function () {
+    const scrollY = window.scrollY;
+    const scrollBottom = window.innerHeight + scrollY >= document.body.offsetHeight;
+
+    // Gornji oblačić nestaje kad skrolamo
+    if (scrollY > 150) {
+      topBadge.style.opacity = "0";
+      topBadge.style.pointerEvents = "none";
+    } else {
+      topBadge.style.opacity = "1";
+      topBadge.style.pointerEvents = "auto";
+    }
+
+    // Donji se pojavljuje kad smo na dnu
+    if (scrollBottom) {
+      bottomBadge.style.opacity = "1";
+      bottomBadge.style.pointerEvents = "auto";
+    } else {
+      bottomBadge.style.opacity = "0";
+      bottomBadge.style.pointerEvents = "none";
+    }
+  });
+</script>
+
+<script>
+  document.querySelectorAll(".faq-question").forEach(button => {
+    button.addEventListener("click", () => {
+      const item = button.parentElement;
+      item.classList.toggle("open");
+
+      // Automatski zatvara ostale otvorene
+      document.querySelectorAll(".faq-item").forEach(otherItem => {
+        if (otherItem !== item) {
+          otherItem.classList.remove("open");
+        }
+      });
+    });
+  });
+</script>
+
+<div id="cryptoModal" class="modal">
+  <div class="modal-content1">
+    <span class="close-btn">&times;</span>
+    <h2 class="popup-title1">Crypto</h2>
+    <ul class="crypto-list">
+      <li><span class="icon">₿</span> Crypto Analiza</li>
+      <li><span class="icon">📊</span> Spot Trejding</li>
+      <li><span class="icon">⏱️</span> Futures Trejding</li>
+      <li><span class="icon">🔁</span> Crypto Razmjena (uskoro) <span class="lock">🔒</span></li>
+      <li><span class="icon">🎁</span> Airdrop i Gemovi</li>
+      <li><span class="icon">👤</span> PnL MoneyLab Crypto Nalog</li>
+    </ul>
+  </div>
+</div>
+
+<script>
+  const cryptoIcon = document.getElementById("cryptoTrigger");
+  const cryptoModal = document.getElementById("cryptoModal");
+  const closeBtn = document.querySelector(".close-btn");
+
+  cryptoIcon.addEventListener("click", () => {
+    cryptoModal.style.display = "block";
+  });
+
+  closeBtn.addEventListener("click", () => {
+    cryptoModal.style.display = "none";
+  });
+
+  window.addEventListener("click", (e) => {
+    if (e.target === cryptoModal) {
+      cryptoModal.style.display = "none";
+    }
+  });
+</script>
+
+<div id="forexModal" class="modal">
+  <div class="modal-content1">
+    <span class="close-forex">&times;</span>
+
+    <h2 class="popup-title1">Forex</h2>
+    <ul class="crypto-list">
+      <li><span class="icon">📊</span> Forex Analiza</li>
+      <li><span class="icon">📅</span> Economic Kalendar</li>
+      <li><span class="icon">⚡</span> Scalp Trejding</li>
+      <li><span class="icon">💼</span> 100K Propfirm Trejding</li>
+      <li><span class="icon">💰</span> $1 Milion Acc Trejding</li>
+      <li><span class="icon">👤</span> PnL MoneyLab Forex Nalog</li>
+    </ul>
+  </div>
+</div>
+
+<script>
+  const forexTrigger = document.getElementById("forexTrigger");
+  const forexModal = document.getElementById("forexModal");
+  const closeForex = document.querySelector(".close-forex");
+
+  forexTrigger.addEventListener("click", () => {
+    forexModal.style.display = "block";
+  });
+
+  closeForex.addEventListener("click", () => {
+    forexModal.style.display = "none";
+  });
+
+  window.addEventListener("click", (e) => {
+    if (e.target === forexModal) {
+      forexModal.style.display = "none";
+    }
+  });
+</script>
+
+<div id="memeModal" class="modal"> 
+  <div class="modal-content1">
+    <span class="close-meme">&times;</span>
+
+    <h2 class="popup-title1">Meme coin</h2> 
+    <ul class="crypto-list">
+      <li><i class="icon">&#128202;</i> Meme coin Analiza</li>
+      <li><i class="icon">&#128302;</i> Telegram Botovi</li>
+      <li><i class="icon">&#128295;</i> Korisni Alati</li>
+      <li><i class="icon">&#128179;</i> Popularne Wallet Adrese</li> 
+    </ul>
+  </div>
+</div>
+
+<script>
+  const memeTrigger = document.getElementById("memeTrigger"); 
+  const memeModal = document.getElementById("memeModal"); 
+  const closeMeme = document.querySelector(".close-meme"); 
+
+ memeTrigger.addEventListener("click", () => { 
+    memeModal.style.display = "block"; 
+  });
+
+  closeMeme.addEventListener("click", () => { 
+    memeModal.style.display = "none"; 
+  });
+
+  window.addEventListener("click", (e) => {
+    if (e.target === memeModal) { 
+      memeModal.style.display = "none"; 
+    }
+  });
+</script>
+
+<div id="liveModal" class="modal"> 
+  <div class="modal-content1">
+    <span class="close-live">&times;</span>
+
+    <h2 class="popup-title1">Live Trading</h2> 
+    <p class="popup-text-live">
+  📅 Unutar aplikacije za sve pretplaćene korisnike bit će sedmični rasporedi i link gdje pristupate lajv trejdingu.<br><br>
+  🧠 Pored lajv uputa mentora i praćenja svih etapa ulaska u kupovinu, moći ćete postavljati i svoja pitanja na koja ćete odmah dobiti odgovor.
+</p>
+
+  </div>
+</div>
+
+<script>
+  const liveTrigger = document.getElementById("liveTrigger"); 
+  const liveModal = document.getElementById("liveModal"); 
+  const closeLive = document.querySelector(".close-live"); 
+
+ liveTrigger.addEventListener("click", () => { 
+    liveModal.style.display = "block"; 
+  });
+
+  closeLive.addEventListener("click", () => { 
+    liveModal.style.display = "none"; 
+  });
+
+  window.addEventListener("click", (e) => {
+    if (e.target === liveModal) { 
+     liveModal.style.display = "none"; 
+    }
+  });
+</script>
+
+<div id="psihoModal" class="modal"> 
+  <div class="modal-content1">
+    <span class="close-psiho">&times;</span>
+
+    <h2 class="popup-title1">Psihologija trejdinga</h2> 
+    <p class="popup-text-live">
+      🧠 Prema mišljenju svih iskusnih trejdera, najbitniji faktor koji utiče na to da li ste profitabilni ili niste ovisi o vašoj psihologiji.<br><br>
+  ▶️ U ovom odjeljku, u video prezentacijama ćete naučiti kako ispravno podesiti svoj mozak za rad i profitabilnost na marketima.
+</p>
+ </div>
+</div>
+
+<script>
+  const psihoTrigger = document.getElementById("psihoTrigger"); 
+  const psihoModal = document.getElementById("psihoModal"); 
+  const closePsiho = document.querySelector(".close-psiho"); 
+
+ psihoTrigger.addEventListener("click", () => { 
+    psihoModal.style.display = "block"; 
+  });
+
+  closePsiho.addEventListener("click", () => { 
+    psihoModal.style.display = "none"; 
+  });
+
+  window.addEventListener("click", (e) => {
+    if (e.target === psihoModal) { 
+     psihoModal.style.display = "none"; 
+    }
+  });
+</script>
+
+<div id="portalModal" class="modal"> 
+  <div class="modal-content1">
+    <span class="close-portal">&times;</span>
+
+    <h2 class="popup-title1">Community</h2> 
+    <p class="popup-text-live">
+  🌐 Community odjeljak je razvijen prema algoritmu popularne platforme X, što znači da će vam interfejs biti poznat i lahko prilagodljiv.
+  <br><br>
+  💬 Unutar ovog odjeljka omogućena je komunikacija sa članovima MoneyLab zajednice, kao i pregled i objavljivanje rezultata svih članova.
+  <br><br>
+  ✉️ Možete postavljati prijedloge i sugestije direktno kreatorima aplikacije.
+  <br><br>
+  🎁 U okviru zajednice često dijelimo razne poklone i nagrade za članove MoneyLab-a – vaša participacija biva dodatno nagrađena!
+  <br><br>
+  🤝 Tu je i naš referal program sa tablicom zarade kroz koju možete pratiti i povećati svoju zaradu.
+</p>
+
+ </div>
+</div>
+
+
+<script>
+  const portalTrigger = document.getElementById("portalTrigger"); 
+  const portalModal = document.getElementById("portalModal"); 
+  const closePortal = document.querySelector(".close-portal"); 
+
+ portalTrigger.addEventListener("click", () => { 
+    portalModal.style.display = "block"; 
+  });
+
+  closePortal.addEventListener("click", () => { 
+    portalModal.style.display = "none"; 
+  });
+
+  window.addEventListener("click", (e) => {
+    if (e.target === portalModal) { 
+     portalModal.style.display = "none"; 
+    }
+  });
+</script>
+
+<!-- Chapter 1 Modal -->
+<div id="chapter1Modal" class="chapter-modal">
+  <div class="chapter-modal-content">
+    <span class="close-chapter" onclick="closeChapterModal('chapter1Modal')">&times;</span>
+    <h3 class="chapter-title"> Chapter 1: Šta je trejding?</h3>
+    <ul class="chapter-lessons">
+  <li>📖 Lekcija 01 – Šta očekivati?</li>
+  <li>📖 Lekcija 02 – Ispravan pristup ovoj edukaciji</li>
+  <li>📖 Lekcija 03 – Uvod u svijet trejdanja</li>
+  <li>📖 Lekcija 04 – Mentalni sklop uspješnih trejdera</li>
+  <li>📖 Lekcija 05 – Koji su prvi koraci ka profitabilnosti?</li>
+</ul>
+
+  </div>
+</div>
+
+<script>
+  function openChapterModal(id) {
+    document.getElementById(id).style.display = "flex";
+  }
+
+  function closeChapterModal(id) {
+    document.getElementById(id).style.display = "none";
+  }
+
+  // Klik izvan modal-a zatvara ga
+  window.addEventListener("click", function(e) {
+    const modals = document.querySelectorAll(".chapter-modal");
+    modals.forEach(modal => {
+      if (e.target === modal) {
+        modal.style.display = "none";
+      }
+    });
+  });
+</script>
+
+<!-- Chapter 2 Modal -->
+<div id="chapter2Modal" class="chapter-modal">
+  <div class="chapter-modal-content">
+    <span class="close-chapter" onclick="closeChapter2Modal('chapter2Modal')">&times;</span>
+    <h3 class="chapter-title"> Chapter 2: Trejding psihologija</h3>
+    <ul class="chapter-lessons">
+  <li>📖 Lekcija 01 – Šta očekivati?</li>
+  <li>📖 Lekcija 02 – Ispravan pristup ovoj edukaciji</li>
+  <li>📖 Lekcija 03 – Uvod u svijet trejdanja</li>
+  <li>📖 Lekcija 04 – Mentalni sklop uspješnih trejdera</li>
+  <li>📖 Lekcija 05 – Koji su prvi koraci ka profitabilnosti?</li>
+</ul>
+
+  </div>
+</div>
+
+<script>
+  function openChapter2Modal(id) {
+    document.getElementById(id).style.display = "flex";
+  }
+
+  function closeChapter2Modal(id) {
+    document.getElementById(id).style.display = "none";
+  }
+
+  // Klik izvan modal-a zatvara ga
+  window.addEventListener("click", function(e) {
+    const modals = document.querySelectorAll(".chapter-modal");
+    modals.forEach(modal => {
+      if (e.target === modal) {
+        modal.style.display = "none";
+      }
+    });
+  });
+</script>
+
+<!-- Chapter 3 Modal -->
+<div id="chapter3Modal" class="chapter-modal">
+  <div class="chapter-modal-content">
+    <span class="close-chapter" onclick="closeChapter3Modal('chapter3Modal')">&times;</span>
+    <h3 class="chapter-title"> Chapter 3: Tehnička analiza</h3>
+    <ul class="chapter-lessons">
+  <li>📖 Lekcija 01 – Šta očekivati?</li>
+  <li>📖 Lekcija 02 – Ispravan pristup ovoj edukaciji</li>
+  <li>📖 Lekcija 03 – Uvod u svijet trejdanja</li>
+  <li>📖 Lekcija 04 – Mentalni sklop uspješnih trejdera</li>
+  <li>📖 Lekcija 05 – Koji su prvi koraci ka profitabilnosti?</li>
+</ul>
+
+  </div>
+</div>
+
+<script>
+  function openChapter3Modal(id) {
+    document.getElementById(id).style.display = "flex";
+  }
+
+  function closeChapter3Modal(id) {
+    document.getElementById(id).style.display = "none";
+  }
+
+  // Klik izvan modal-a zatvara ga
+  window.addEventListener("click", function(e) {
+    const modals = document.querySelectorAll(".chapter-modal");
+    modals.forEach(modal => {
+      if (e.target === modal) {
+        modal.style.display = "none";
+      }
+    });
+  });
+</script>
+
+<!-- Chapter 4 Modal -->
+<div id="chapter4Modal" class="chapter-modal">
+  <div class="chapter-modal-content">
+    <span class="close-chapter" onclick="closeChapter4Modal('chapter4Modal')">&times;</span>
+    <h3 class="chapter-title"> Chapter 4: Indikator trejding</h3>
+    <ul class="chapter-lessons">
+  <li>📖 Lekcija 01 – Šta očekivati?</li>
+  <li>📖 Lekcija 02 – Ispravan pristup ovoj edukaciji</li>
+  <li>📖 Lekcija 03 – Uvod u svijet trejdanja</li>
+  <li>📖 Lekcija 04 – Mentalni sklop uspješnih trejdera</li>
+  <li>📖 Lekcija 05 – Koji su prvi koraci ka profitabilnosti?</li>
+</ul>
+
+  </div>
+</div>
+
+<script>
+  function openChapter4Modal(id) {
+    document.getElementById(id).style.display = "flex";
+  }
+
+  function closeChapter4Modal(id) {
+    document.getElementById(id).style.display = "none";
+  }
+
+  // Klik izvan modal-a zatvara ga
+  window.addEventListener("click", function(e) {
+    const modals = document.querySelectorAll(".chapter-modal");
+    modals.forEach(modal => {
+      if (e.target === modal) {
+        modal.style.display = "none";
+      }
+    });
+  });
+</script>
+
+<!-- Chapter 5 Modal -->
+<div id="chapter5Modal" class="chapter-modal">
+  <div class="chapter-modal-content">
+    <span class="close-chapter" onclick="closeChapter5Modal('chapter5Modal')">&times;</span>
+    <h3 class="chapter-title"> Chapter 5: Key level trejding</h3>
+    <ul class="chapter-lessons">
+  <li>📖 Lekcija 01 – Šta očekivati?</li>
+  <li>📖 Lekcija 02 – Ispravan pristup ovoj edukaciji</li>
+  <li>📖 Lekcija 03 – Uvod u svijet trejdanja</li>
+  <li>📖 Lekcija 04 – Mentalni sklop uspješnih trejdera</li>
+  <li>📖 Lekcija 05 – Koji su prvi koraci ka profitabilnosti?</li>
+</ul>
+
+  </div>
+</div>
+
+<script>
+  function openChapter5Modal(id) {
+    document.getElementById(id).style.display = "flex";
+  }
+
+  function closeChapter5Modal(id) {
+    document.getElementById(id).style.display = "none";
+  }
+
+  // Klik izvan modal-a zatvara ga
+  window.addEventListener("click", function(e) {
+    const modals = document.querySelectorAll(".chapter-modal");
+    modals.forEach(modal => {
+      if (e.target === modal) {
+        modal.style.display = "none";
+      }
+    });
+  });
+</script>
+
+<!-- Chapter 6 Modal -->
+<div id="chapter6Modal" class="chapter-modal">
+  <div class="chapter-modal-content">
+    <span class="close-chapter" onclick="closeChapter6Modal('chapter6Modal')">&times;</span>
+    <h3 class="chapter-title"> Chapter 6: Trejding sistemi</h3>
+    <ul class="chapter-lessons">
+  <li>📖 Lekcija 01 – Šta očekivati?</li>
+  <li>📖 Lekcija 02 – Ispravan pristup ovoj edukaciji</li>
+  <li>📖 Lekcija 03 – Uvod u svijet trejdanja</li>
+  <li>📖 Lekcija 04 – Mentalni sklop uspješnih trejdera</li>
+  <li>📖 Lekcija 05 – Koji su prvi koraci ka profitabilnosti?</li>
+</ul>
+
+  </div>
+</div>
+
+<script>
+  function openChapter6Modal(id) {
+    document.getElementById(id).style.display = "flex";
+  }
+
+  function closeChapter6Modal(id) {
+    document.getElementById(id).style.display = "none";
+  }
+
+  // Klik izvan modal-a zatvara ga
+  window.addEventListener("click", function(e) {
+    const modals = document.querySelectorAll(".chapter-modal");
+    modals.forEach(modal => {
+      if (e.target === modal) {
+        modal.style.display = "none";
+      }
+    });
+  });
+</script>
+
+<!-- Chapter 7 Modal -->
+<div id="chapter7Modal" class="chapter-modal">
+  <div class="chapter-modal-content">
+    <span class="close-chapter" onclick="closeChapter7Modal('chapter7Modal')">&times;</span>
+    <h3 class="chapter-title"> Chapter 7: Čuvanje kapitala</h3>
+    <ul class="chapter-lessons">
+  <li>📖 Lekcija 01 – Šta očekivati?</li>
+  <li>📖 Lekcija 02 – Ispravan pristup ovoj edukaciji</li>
+  <li>📖 Lekcija 03 – Uvod u svijet trejdanja</li>
+  <li>📖 Lekcija 04 – Mentalni sklop uspješnih trejdera</li>
+  <li>📖 Lekcija 05 – Koji su prvi koraci ka profitabilnosti?</li>
+</ul>
+
+  </div>
+</div>
+
+<script>
+  function openChapter7Modal(id) {
+    document.getElementById(id).style.display = "flex";
+  }
+
+  function closeChapter7Modal(id) {
+    document.getElementById(id).style.display = "none";
+  }
+
+  // Klik izvan modal-a zatvara ga
+  window.addEventListener("click", function(e) {
+    const modals = document.querySelectorAll(".chapter-modal");
+    modals.forEach(modal => {
+      if (e.target === modal) {
+        modal.style.display = "none";
+      }
+    });
+  });
+</script>
+
+<!-- Chapter 8 Modal -->
+<div id="chapter8Modal" class="chapter-modal">
+  <div class="chapter-modal-content">
+    <span class="close-chapter" onclick="closeChapter8Modal('chapter8Modal')">&times;</span>
+    <h3 class="chapter-title"> Chapter 8: Key level 2.0</h3>
+    <ul class="chapter-lessons">
+  <li>📖 Lekcija 01 – Šta očekivati?</li>
+  <li>📖 Lekcija 02 – Ispravan pristup ovoj edukaciji</li>
+  <li>📖 Lekcija 03 – Uvod u svijet trejdanja</li>
+  <li>📖 Lekcija 04 – Mentalni sklop uspješnih trejdera</li>
+  <li>📖 Lekcija 05 – Koji su prvi koraci ka profitabilnosti?</li>
+</ul>
+
+  </div>
+</div>
+
+<script>
+  function openChapter8Modal(id) {
+    document.getElementById(id).style.display = "flex";
+  }
+
+  function closeChapter8Modal(id) {
+    document.getElementById(id).style.display = "none";
+  }
+
+  // Klik izvan modal-a zatvara ga
+  window.addEventListener("click", function(e) {
+    const modals = document.querySelectorAll(".chapter-modal");
+    modals.forEach(modal => {
+      if (e.target === modal) {
+        modal.style.display = "none";
+      }
+    });
+  });
+</script>
+
+
+<!-- Chapter 9 Modal -->
+<div id="chapter9Modal" class="chapter-modal">
+  <div class="chapter-modal-content">
+    <span class="close-chapter" onclick="closeChapter9Modal('chapter9Modal')">&times;</span>
+    <h3 class="chapter-title"> Chapter 9: Risk & money menadžment</h3>
+    <ul class="chapter-lessons">
+  <li>📖 Lekcija 01 – Šta očekivati?</li>
+  <li>📖 Lekcija 02 – Ispravan pristup ovoj edukaciji</li>
+  <li>📖 Lekcija 03 – Uvod u svijet trejdanja</li>
+  <li>📖 Lekcija 04 – Mentalni sklop uspješnih trejdera</li>
+  <li>📖 Lekcija 05 – Koji su prvi koraci ka profitabilnosti?</li>
+</ul>
+
+  </div>
+</div>
+
+<script>
+  function openChapter9Modal(id) {
+    document.getElementById(id).style.display = "flex";
+  }
+
+  function closeChapter9Modal(id) {
+    document.getElementById(id).style.display = "none";
+  }
+
+  // Klik izvan modal-a zatvara ga
+  window.addEventListener("click", function(e) {
+    const modals = document.querySelectorAll(".chapter-modal");
+    modals.forEach(modal => {
+      if (e.target === modal) {
+        modal.style.display = "none";
+      }
+    });
+  });
+</script>
+
+
+<!-- Chapter 10 Modal -->
+<div id="chapter10Modal" class="chapter-modal">
+  <div class="chapter-modal-content">
+    <span class="close-chapter" onclick="closeChapter10Modal('chapter10Modal')">&times;</span>
+    <h3 class="chapter-title"> Chapter 10: Napredni key sistemi</h3>
+    <ul class="chapter-lessons">
+  <li>📖 Lekcija 01 – Šta očekivati?</li>
+  <li>📖 Lekcija 02 – Ispravan pristup ovoj edukaciji</li>
+  <li>📖 Lekcija 03 – Uvod u svijet trejdanja</li>
+  <li>📖 Lekcija 04 – Mentalni sklop uspješnih trejdera</li>
+  <li>📖 Lekcija 05 – Koji su prvi koraci ka profitabilnosti?</li>
+</ul>
+
+  </div>
+</div>
+
+<script>
+  function openChapter10Modal(id) {
+    document.getElementById(id).style.display = "flex";
+  }
+
+  function closeChapter10Modal(id) {
+    document.getElementById(id).style.display = "none";
+  }
+
+  // Klik izvan modal-a zatvara ga
+  window.addEventListener("click", function(e) {
+    const modals = document.querySelectorAll(".chapter-modal");
+    modals.forEach(modal => {
+      if (e.target === modal) {
+        modal.style.display = "none";
+      }
+    });
+  });
+</script>
+
+
+<!-- Chapter 11 Modal -->
+<div id="chapter11Modal" class="chapter-modal">
+  <div class="chapter-modal-content">
+    <span class="close-chapter" onclick="closeChapter11Modal('chapter11Modal')">&times;</span>
+    <h3 class="chapter-title"> Chapter 11: Strategija MoneyLab-a</h3>
+    <ul class="chapter-lessons">
+  <li>📖 Lekcija 01 – Šta očekivati?</li>
+  <li>📖 Lekcija 02 – Ispravan pristup ovoj edukaciji</li>
+  <li>📖 Lekcija 03 – Uvod u svijet trejdanja</li>
+  <li>📖 Lekcija 04 – Mentalni sklop uspješnih trejdera</li>
+  <li>📖 Lekcija 05 – Koji su prvi koraci ka profitabilnosti?</li>
+</ul>
+
+  </div>
+</div>
+
+<script>
+  function openChapter11Modal(id) {
+    document.getElementById(id).style.display = "flex";
+  }
+
+  function closeChapter11Modal(id) {
+    document.getElementById(id).style.display = "none";
+  }
+
+  // Klik izvan modal-a zatvara ga
+  window.addEventListener("click", function(e) {
+    const modals = document.querySelectorAll(".chapter-modal");
+    modals.forEach(modal => {
+      if (e.target === modal) {
+        modal.style.display = "none";
+      }
+    });
+  });
+</script>
+
+<!-- Chapter 12 Modal -->
+<div id="chapter12Modal" class="chapter-modal">
+  <div class="chapter-modal-content">
+    <span class="close-chapter" onclick="closeChapter12Modal('chapter12Modal')">&times;</span>
+    <h3 class="chapter-title"> Chapter 12: Statistika i algoritmi</h3>
+    <ul class="chapter-lessons">
+  <li>📖 Lekcija 01 – Šta očekivati?</li>
+  <li>📖 Lekcija 02 – Ispravan pristup ovoj edukaciji</li>
+  <li>📖 Lekcija 03 – Uvod u svijet trejdanja</li>
+  <li>📖 Lekcija 04 – Mentalni sklop uspješnih trejdera</li>
+  <li>📖 Lekcija 05 – Koji su prvi koraci ka profitabilnosti?</li>
+</ul>
+
+  </div>
+</div>
+
+<script>
+  function openChapter12Modal(id) {
+    document.getElementById(id).style.display = "flex";
+  }
+
+  function closeChapter12Modal(id) {
+    document.getElementById(id).style.display = "none";
+  }
+
+  // Klik izvan modal-a zatvara ga
+  window.addEventListener("click", function(e) {
+    const modals = document.querySelectorAll(".chapter-modal");
+    modals.forEach(modal => {
+      if (e.target === modal) {
+        modal.style.display = "none";
+      }
+    });
+  });
+</script>
+
+
+<!-- Chapter 13 Modal -->
+<div id="chapter13Modal" class="chapter-modal">
+  <div class="chapter-modal-content">
+    <span class="close-chapter" onclick="closeChapter13Modal('chapter13Modal')">&times;</span>
+    <h3 class="chapter-title"> Chapter 13: Brokeri i prop firme</h3>
+    <ul class="chapter-lessons">
+  <li>📖 Lekcija 01 – Šta očekivati?</li>
+  <li>📖 Lekcija 02 – Ispravan pristup ovoj edukaciji</li>
+  <li>📖 Lekcija 03 – Uvod u svijet trejdanja</li>
+  <li>📖 Lekcija 04 – Mentalni sklop uspješnih trejdera</li>
+  <li>📖 Lekcija 05 – Koji su prvi koraci ka profitabilnosti?</li>
+</ul>
+
+  </div>
+</div>
+
+<script>
+  function openChapter13Modal(id) {
+    document.getElementById(id).style.display = "flex";
+  }
+
+  function closeChapter13Modal(id) {
+    document.getElementById(id).style.display = "none";
+  }
+
+  // Klik izvan modal-a zatvara ga
+  window.addEventListener("click", function(e) {
+    const modals = document.querySelectorAll(".chapter-modal");
+    modals.forEach(modal => {
+      if (e.target === modal) {
+        modal.style.display = "none";
+      }
+    });
+  });
+</script>
+
+
+<!-- Chapter 14 Modal -->
+<div id="chapter14Modal" class="chapter-modal">
+  <div class="chapter-modal-content">
+    <span class="close-chapter" onclick="closeChapter14Modal('chapter14Modal')">&times;</span>
+    <h3 class="chapter-title"> Chapter 14: Meme coin trgovanje</h3>
+    <ul class="chapter-lessons">
+  <li>📖 Lekcija 01 – Šta očekivati?</li>
+  <li>📖 Lekcija 02 – Ispravan pristup ovoj edukaciji</li>
+  <li>📖 Lekcija 03 – Uvod u svijet trejdanja</li>
+  <li>📖 Lekcija 04 – Mentalni sklop uspješnih trejdera</li>
+  <li>📖 Lekcija 05 – Koji su prvi koraci ka profitabilnosti?</li>
+</ul>
+
+  </div>
+</div>
+
+<script>
+  function openChapter14Modal(id) {
+    document.getElementById(id).style.display = "flex";
+  }
+
+  function closeChapter14Modal(id) {
+    document.getElementById(id).style.display = "none";
+  }
+
+  // Klik izvan modal-a zatvara ga
+  window.addEventListener("click", function(e) {
+    const modals = document.querySelectorAll(".chapter-modal");
+    modals.forEach(modal => {
+      if (e.target === modal) {
+        modal.style.display = "none";
+      }
+    });
+  });
+</script>
+
+<!-- Chapter 15 Modal -->
+<div id="chapter15Modal" class="chapter-modal">
+  <div class="chapter-modal-content">
+    <span class="close-chapter" onclick="closeChapter15Modal('chapter15Modal')">&times;</span>
+    <h3 class="chapter-title"> Chapter 15: Finale</h3>
+    <ul class="chapter-lessons">
+  <li>📖 Lekcija 01 – Šta očekivati?</li>
+  <li>📖 Lekcija 02 – Ispravan pristup ovoj edukaciji</li>
+  <li>📖 Lekcija 03 – Uvod u svijet trejdanja</li>
+  <li>📖 Lekcija 04 – Mentalni sklop uspješnih trejdera</li>
+  <li>📖 Lekcija 05 – Koji su prvi koraci ka profitabilnosti?</li>
+</ul>
+
+  </div>
+</div>
+
+<script>
+  function openChapter15Modal(id) {
+    document.getElementById(id).style.display = "flex";
+  }
+
+  function closeChapter15Modal(id) {
+    document.getElementById(id).style.display = "none";
+  }
+
+  // Klik izvan modal-a zatvara ga
+  window.addEventListener("click", function(e) {
+    const modals = document.querySelectorAll(".chapter-modal");
+    modals.forEach(modal => {
+      if (e.target === modal) {
+        modal.style.display = "none";
+      }
+    });
+  });
+</script>
+
+<!-- POPUP ZA SIGNALI -->
+<div id="signalsPopup" class="signal-popup-overlay">
+  <div class="signal-popup-content">
+    <span class="close-popup" id="closeSignalsPopup">&times;</span>
+    <img src="signali.png" alt="Signali Objašnjenje" />
+    
+    <div class="signal-popup-text">
+
+ <p>📲 Lijeva slika pokazuje da svaki signal dolazi i kao notifikacija na vaš telefon, tako da nijedna prilika ne prođe neprimijećeno.</p>
+
+      <p>🔍 Desna slika prikazuje primjer signala koji korisnici primaju direktno putem aplikacije – s jasno označenim ulazom, izlazom, SL/TP vrijednostima i dodatnim napomenama za lakše razumijevanje.</p>
+     
+      <p>🧠 Naš tim profesionalnih trejdera svakodnevno analizira tržište i dostavlja vam pravovremene i precizne informacije – sve kako biste mogli reagovati na vrijeme.</p>
+    </div>
+  </div>
+</div>
+
+
+<script>
+  const signalIcon = document.querySelector('.signal-icon');
+  const signalsPopup = document.getElementById('signalsPopup');
+  const closeSignalsPopup = document.getElementById('closeSignalsPopup');
+
+  signalIcon.addEventListener('click', () => {
+    signalsPopup.style.display = 'flex';
+  });
+
+  closeSignalsPopup.addEventListener('click', () => {
+    signalsPopup.style.display = 'none';
+  });
+
+  window.addEventListener('click', (e) => {
+    if (e.target === signalsPopup) {
+      signalsPopup.style.display = 'none';
+    }
+  });
+</script>
+
+<script>
+  const faqButtons = document.querySelectorAll('.faq-question');
+  faqButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const answer = button.nextElementSibling;
+      const isOpen = answer.style.display === 'block';
+
+      document.querySelectorAll('.faq-answer').forEach(ans => ans.style.display = 'none');
+      if (!isOpen) {
+        answer.style.display = 'block';
+      }
+    });
+  });
+</script>
+
+<script>
+  function toggleMobileMenu() {
+    const menu = document.getElementById("mobileMenu");
+    menu.style.display = menu.style.display === "block" ? "none" : "block";
+  }
+</script>
+
+</script>
+</body>
+</html>
+
+
